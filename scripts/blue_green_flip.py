@@ -96,7 +96,6 @@ def get_user_params(job_id,job_data):
 
     return decoded_parameters
 
-
 def swaptargetgroups(elbname):
     """Discovers the live target group and non-production target group and swaps
 
@@ -186,6 +185,7 @@ def modify_tags(arn,tagkey,tagvalue):
             },
         ]
     )
+    
 def handler(event, context):
     """ Main haldler as an entry point of the AWS Lambda function. Handler controls the sequence of methods to call
     1. Read Job Data from input json
@@ -209,7 +209,7 @@ def handler(event, context):
         print(event)
         job_id = event['CodePipeline.job']['id']
         job_data = event['CodePipeline.job']['data']
-        params = get_user_params(job_id,job_data)
+        params = get_user_params(job_id, job_data)
         elb_name = params['ElbName']
         print("ELBNAME="+elb_name)
         swaptargetgroups(elb_name)
