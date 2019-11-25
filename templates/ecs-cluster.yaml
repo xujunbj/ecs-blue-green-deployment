@@ -214,7 +214,6 @@ Resources:
         Identifier: "Code1"
         IsProduction: True
 
-
 Outputs:
   ClusterName:
       Value: !Ref Cluster
