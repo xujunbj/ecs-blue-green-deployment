@@ -112,12 +112,9 @@ Resources:
         - !Ref Subnet1
         - !Ref Subnet2
       LaunchConfigurationName: !Ref LaunchConfiguration
-      # MinSize: !Ref ClusterSize
-      # MaxSize: !Ref ClusterSize
-      # DesiredCapacity: !Ref ClusterSize
-      MinSize: 2
-      MaxSize: 4
-      DesiredCapacity: 2
+      MinSize: !Ref ClusterSize
+      MaxSize: !Ref ClusterSize
+      DesiredCapacity: !Ref ClusterSize
       Tags: 
         - Key: Name
           Value: !Sub ${AWS::StackName} - ECS Host
